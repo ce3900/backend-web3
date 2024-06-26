@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <h1>WEB APP</h1>
+      <h1>WEB APPs</h1>
       <p>{message}</p>
       {startAppParam !== null && <p>Valor del parámetro startapp: {startAppParam}</p>}
       <p>Tu ID de Telegram es: {userId}</p>
