@@ -6,14 +6,18 @@ function App() {
   const [message, setMessage] = useState('Cargando...');
 
   useEffect(() => {
-    // Verificar si Telegram WebApp está disponible
     if (window.Telegram && window.Telegram.WebApp) {
-      // Obtener el valor del parámetro startapp de la URL
+      // Obtener el parámetro startapp de la URL
       const urlParams = new URLSearchParams(window.Telegram.WebApp.initData);
-      const startApp = urlParams.get('startapp');
+      let startApp = urlParams.get('startapp');
+
+      // Obtener el parámetro start_param desde initData
+      const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
+      if (initDataUnsafe && initDataUnsafe.start_param) {
+        startApp = initDataUnsafe.start_param;
+      }
       setStartAppParam(startApp);
 
-      const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
       if (initDataUnsafe && initDataUnsafe.user) {
         setUserId(initDataUnsafe.user.id);
         setMessage(`Tu ID de Telegram es: ${initDataUnsafe.user.id}`);
@@ -27,7 +31,7 @@ function App() {
 
   return (
     <div>
-      <h1>WEB APPs</h1>
+      <h1>WEB APPS</h1>
       <p>{message}</p>
       {startAppParam !== null && <p>Valor del parámetro startapp: {startAppParam}</p>}
       <p>Tu ID de Telegram es: {userId}</p>
