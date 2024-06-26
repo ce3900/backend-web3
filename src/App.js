@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [userId, setUserId] = useState(null);
   const [message, setMessage] = useState('Cargando...');
 
   useEffect(() => {
@@ -12,6 +13,7 @@ function App() {
       const user = initDataUnsafe.user;
 
       if (user) {
+        setUserId(user.id);
         setMessage(`Tu ID de Telegram es: ${user.id}`);
       } else {
         setMessage('Usuario no identificado');
@@ -25,6 +27,7 @@ function App() {
     <div>
       <h1>Bienvenido a la Web App de Telegram</h1>
       <p>{message}</p>
+      {userId && <p>Tu ID de Telegram es: {userId}</p>}
     </div>
   );
 }
