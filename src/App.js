@@ -8,15 +8,18 @@ function App() {
     console.log('Telegram WebApp:', window.Telegram && window.Telegram.WebApp);
     console.log('InitDataUnsafe:', window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe);
 
-    if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+    if (window.Telegram && window.Telegram.WebApp) {
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
-      const user = initDataUnsafe.user;
-
-      if (user) {
-        setUserId(user.id);
-        setMessage(`Tu ID de Telegram es: ${user.id}`);
+      if (initDataUnsafe) {
+        const user = initDataUnsafe.user;
+        if (user) {
+          setUserId(user.id);
+          setMessage(`Tu ID de Telegram es: ${user.id}`);
+        } else {
+          setMessage('Usuario no identificado');
+        }
       } else {
-        setMessage('Usuario no identificado');
+        setMessage('Datos iniciales no disponibles');
       }
     } else {
       setMessage('Esta aplicación solo funciona dentro de Telegram');
