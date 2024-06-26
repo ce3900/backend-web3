@@ -2,27 +2,31 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   const [userId, setUserId] = useState(null);
+  const [message, setMessage] = useState('Cargando...');
 
   useEffect(() => {
-    // Verifica que el objeto Telegram.WebApp está disponible
+    console.log('Telegram WebApp:', window.Telegram && window.Telegram.WebApp);
+    console.log('InitDataUnsafe:', window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe);
+
     if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
       const user = initDataUnsafe.user;
-      
+
       if (user) {
         setUserId(user.id);
+        setMessage(`Tu ID de Telegram es: ${user.id}`);
       } else {
-        setUserId('Usuario no identificado');
+        setMessage('Usuario no identificado');
       }
     } else {
-      setUserId('Telegram Web App no está disponible');
+      setMessage('Esta aplicación solo funciona dentro de Telegram');
     }
   }, []);
 
   return (
     <div>
       <h1>Bienvenido a la Web App de Telegram</h1>
-      <p>Tu ID de Telegram es: {userId}</p>
+      <p>{message}</p>
     </div>
   );
 }
