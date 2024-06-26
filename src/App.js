@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <h1>Bienvenido a la Web App de Telegram</h1>
+      <h1>WEB APP</h1>
       <p>{message}</p>
       {startAppParam && <p>Valor del parámetro startapp: {startAppParam}</p>}
       {userId && <p>Tu ID de Telegram es: {userId}</p>}
