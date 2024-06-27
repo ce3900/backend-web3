@@ -7,20 +7,21 @@ function App() {
 
   useEffect(() => {
     if (window.Telegram.WebApp) {
-      const urlParams = new URLSearchParams(window.Telegram.WebApp.initData);
-      let startApp = urlParams.get('startapp');
-
+      // Asumimos que start_param siempre está en initDataUnsafe, si está disponible
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
-      if (initDataUnsafe && initDataUnsafe.start_param) {
-        startApp = initDataUnsafe.start_param;  // Asegurarse de obtener start_param si está disponible
-      }
-      setStartAppParam(startApp);
+      if (initDataUnsafe) {
+        if (initDataUnsafe.start_param) {
+          setStartAppParam(initDataUnsafe.start_param);
+        }
 
-      if (initDataUnsafe && initDataUnsafe.user) {
-        setUserId(initDataUnsafe.user.id);
-        setMessage(`Tu ID de Telegram es: ${initDataUnsafe.user.id}`);
+        if (initDataUnsafe.user) {
+          setUserId(initDataUnsafe.user.id);
+          setMessage(`Tu ID de Telegram es: ${initDataUnsafe.user.id}`);
+        } else {
+          setMessage('Usuario no identificado o datos iniciales no disponibles');
+        }
       } else {
-        setMessage('Usuario no identificado o datos iniciales no disponibles');
+        setMessage('Datos iniciales no seguros no disponibles');
       }
     } else {
       setMessage('Esta aplicación solo funciona dentro de Telegram');
