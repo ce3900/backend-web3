@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './index.jsx';
+import React, { useEffect, useState } from "react";
+import "./index.jsx";
 
 function App() {
   const [userId, setUserId] = useState(null);
   const [startAppParam, setStartAppParam] = useState(null);
-  const [message, setMessage] = useState('Cargando...');
+  const [message, setMessage] = useState("Cargando...");
 
   useEffect(() => {
     if (window.Telegram.WebApp) {
@@ -17,13 +17,15 @@ function App() {
           setUserId(initDataUnsafe.user.id);
           setMessage(`Tu IDda de Telegram es: ${initDataUnsafe.user.id}`);
         } else {
-          setMessage('Usuario no identificado o datos iniciales no disponibles');
+          setMessage(
+            "Usuario no identificado o datos iniciales no disponibles"
+          );
         }
       } else {
-        setMessage('Datos iniciales no seguros no disponibles');
+        setMessage("Datos iniciales no seguros no disponibles");
       }
     } else {
-      setMessage('Esta aplicación solo funciona dentro de Telegram');
+      setMessage("Esta aplicación solo funciona dentro de Telegram");
     }
   }, []);
 
@@ -34,13 +36,25 @@ function App() {
         <p className="mb-4">{message}</p>
         <div className="bg-gray-700 p-4 rounded-lg shadow">
           {userId && <p>Tu ID de Telegram es: {userId}</p>}
-          {startAppParam && <p>Valor del parámetro startapp: {startAppParam}</p>}
-          <img src="minero1.jpg" alt="Mining Plan" className="mx-auto w-32 h-32 rounded-full mt-3" />
+          {startAppParam && (
+            <p>Valor del parámetro startapp: {startAppParam}</p>
+          )}
+          <img
+            src="minero1.jpg"
+            alt="Mining Plan"
+            className="mx-auto w-32 h-32 rounded-full mt-3"
+          />
         </div>
         <div className="grid grid-cols-3 gap-4 mt-4">
-          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Share</button>
-          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Withdraw</button>
-          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Live Payments</button>
+          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Share
+          </button>
+          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Withdraw
+          </button>
+          <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Live Payments
+          </button>
         </div>
         <div className="text-left mt-4">
           <h2 className="text-lg font-bold">FAQ</h2>
