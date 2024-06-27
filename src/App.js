@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaShareSquare, FaMoneyBillWave, FaBroadcastTower } from 'react-icons/fa';
+import { FaWallet, FaChartLine, FaDollarSign, FaHome, FaExchangeAlt, FaEllipsisH } from 'react-icons/fa';
 import './index.css';
 
 function App() {
@@ -29,24 +29,24 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-        <h1 className="text-2xl font-bold mb-2">WEB APPS</h1>
+    <div className="bg-pink-100 text-gray-800 min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg text-center">
+        <h1 className="text-2xl font-bold mb-2 text-blue-500">WEB APPS</h1>
         <p className="mb-4">{message}</p>
-        <div className="bg-gray-700 p-4 rounded-lg shadow">
-          {userId && <p>Tu ID de Telegram es: {userId}</p>}
-          {startAppParam && <p>Valor del parámetro startapp: {startAppParam}</p>}
+        <div className="bg-blue-100 p-4 rounded-lg shadow mb-4">
+          {userId && <p><FaWallet className="inline mr-2"/>Tu ID de Telegram es: {userId}</p>}
+          {startAppParam && <p><FaChartLine className="inline mr-2"/>Valor del parámetro startapp: {startAppParam}</p>}
           <img src="minero1.jpg" alt="Mining Plan" className="mx-auto w-32 h-32 rounded-full mt-3" />
         </div>
         <div className="grid grid-cols-3 gap-4 mt-4">
-          <button className="flex justify-center items-center bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            <FaShareSquare className="mr-2" /> Share
+          <button className="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <FaDollarSign className="mr-2" /> Withdraw
           </button>
-          <button className="flex justify-center items-center bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            <FaMoneyBillWave className="mr-2" /> Withdraw
+          <button className="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <FaHome className="mr-2" /> Investment
           </button>
-          <button className="flex justify-center items-center bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            <FaBroadcastTower className="mr-2" /> Live Payments
+          <button className="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <FaExchangeAlt className="mr-2" /> Deposit
           </button>
         </div>
         <div className="text-left mt-4">
@@ -56,7 +56,7 @@ function App() {
           <p>About</p>
         </div>
       </div>
-      <footer className="text-gray-400 text-sm mt-6">
+      <footer className="text-gray-500 text-sm mt-6">
         @ASDAS2NBBOT
         <br />
         Please see the manual.
