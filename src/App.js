@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './index.jsx';
+import './index.js';
 
 function App() {
   const [userId, setUserId] = useState(null);
