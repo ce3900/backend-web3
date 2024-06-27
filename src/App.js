@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaWallet, FaChartLine, FaDollarSign, FaHome, FaExchangeAlt, FaEllipsisH } from 'react-icons/fa';
+import { FaWallet, FaChartLine, FaDollarSign, FaHome, FaExchangeAlt } from 'react-icons/fa';
 import './index.css';
 
 function App() {
