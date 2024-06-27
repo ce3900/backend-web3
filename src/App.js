@@ -15,7 +15,7 @@ function App() {
         }
         if (initDataUnsafe.user) {
           setUserId(initDataUnsafe.user.id);
-          setMessage(`Tu IDd de Telegram es: ${initDataUnsafe.user.id}`);
+          setMessage(`Tu IDda de Telegram es: ${initDataUnsafe.user.id}`);
         } else {
           setMessage('Usuario no identificado o datos iniciales no disponibles');
         }
