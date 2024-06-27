@@ -1,9 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  content: [],
   theme: {
-    extend: {},
-  },
-  plugins: [],
+    extend: {
+      colors: {
+        'dark-black': '#121212', // Un negro más mate
+        'money-green': '#85bb65' // Verde dinero pastel
+      }
+    }
+  }
 }
-

@@ -27,14 +27,19 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
-      <div className="p-4 bg-gray-800 rounded-lg shadow-lg text-center">
-        <h1 className="text-xl font-bold mb-2">WEB APPS</h1>
-        <p className="mb-4">{message}</p>
+    <div className="bg-dark-black text-white min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="space-y-4 max-w-xs w-full">
+        <h1 className="text-xl font-bold text-center">WEB APPS</h1>
+        <p>{message}</p>
         {startAppParam && <p>Valor del parámetro startapp: {startAppParam}</p>}
         {userId && <p>Tu ID de Telegram es: {userId}</p>}
+        {/* Utiliza la imagen minero1.jpg desde la carpeta public */}
+        <img src="minero1.jpg" alt="Mining Plan" className="mx-auto w-full" />
+        <button className="bg-money-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full">
+          UPGRADE
+        </button>
       </div>
-      <footer className="text-center text-gray-400 text-sm mt-4">
+      <footer className="text-center text-gray-400 text-sm mt-6">
         @ASDAS2NBBOT
         <br/>
         Please see the manual.
