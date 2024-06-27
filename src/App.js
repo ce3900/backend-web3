@@ -6,15 +6,13 @@ function App() {
   const [message, setMessage] = useState('Cargando...');
 
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      // Obtener el parámetro startapp de la URL
+    if (window.Telegram.WebApp) {
       const urlParams = new URLSearchParams(window.Telegram.WebApp.initData);
       let startApp = urlParams.get('startapp');
 
-      // Obtener el parámetro start_param desde initData
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
       if (initDataUnsafe && initDataUnsafe.start_param) {
-        startApp = initDataUnsafe.start_param;
+        startApp = initDataUnsafe.start_param;  // Asegurarse de obtener start_param si está disponible
       }
       setStartAppParam(startApp);
 
@@ -30,11 +28,11 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>WEB APPS</h1>
-      <p>{message}</p>
-      {startAppParam !== null && <p>Valor del parámetro startapp: {startAppParam}</p>}
-      <p>Tu ID de Telegram es: {userId}</p>
+    <div className="p-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <h1 className="text-xl font-bold text-center text-gray-900">WEB APPS</h1>
+      <p className="text-center text-gray-600">{message}</p>
+      {startAppParam && <p className="text-center text-green-500">Valor del parámetro startapp: {startAppParam}</p>}
+      {userId && <p className="text-center text-blue-500">Tu ID de Telegram es: {userId}</p>}
     </div>
   );
 }
