@@ -7,13 +7,11 @@ function App() {
 
   useEffect(() => {
     if (window.Telegram.WebApp) {
-      // Asumimos que start_param siempre está en initDataUnsafe, si está disponible
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
       if (initDataUnsafe) {
         if (initDataUnsafe.start_param) {
           setStartAppParam(initDataUnsafe.start_param);
         }
-
         if (initDataUnsafe.user) {
           setUserId(initDataUnsafe.user.id);
           setMessage(`Tu ID de Telegram es: ${initDataUnsafe.user.id}`);
@@ -29,11 +27,18 @@ function App() {
   }, []);
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-      <h1 className="text-xl font-bold text-center text-gray-900">WEB APPS</h1>
-      <p className="text-center text-gray-600">{message}</p>
-      {startAppParam && <p className="text-center text-green-500">Valor del parámetro startapp: {startAppParam}</p>}
-      {userId && <p className="text-center text-blue-500">Tu ID de Telegram es: {userId}</p>}
+    <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
+      <div className="p-4 bg-gray-800 rounded-lg shadow-lg text-center">
+        <h1 className="text-xl font-bold mb-2">WEB APPS</h1>
+        <p className="mb-4">{message}</p>
+        {startAppParam && <p>Valor del parámetro startapp: {startAppParam}</p>}
+        {userId && <p>Tu ID de Telegram es: {userId}</p>}
+      </div>
+      <footer className="text-center text-gray-400 text-sm mt-4">
+        @ASDAS2NBBOT
+        <br/>
+        Please see the manual.
+      </footer>
     </div>
   );
 }
